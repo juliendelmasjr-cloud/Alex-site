@@ -22,3 +22,15 @@ Thumbs.db
 
 # Claude
 .claude/
+
+# Médias lourds (à héberger sur Cloudinary / Bunny / CDN)
+*.mp4
+*.mov
+*.webm
+
+# Anciennes versions monolithiques (avant migration React)
+alexandre-delovane-v1-rose-doree*.html
+Portfolio Julien Delmas*.html
+
+# Résidus de nettoyage
+index.html.clean

@@ -2,12 +2,16 @@ import { useEffect, useRef, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Cart from './components/Cart'
+import { CartProvider } from './context/CartContext'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import Ateliers from './pages/Ateliers'
 import Boutique from './pages/Boutique'
 import Medias from './pages/Medias'
 import Contact from './pages/Contact'
+import Success from './pages/Success'
+import Cancel from './pages/Cancel'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -77,7 +81,7 @@ export default function App() {
   }, [])
 
   return (
-    <>
+    <CartProvider>
       <div className="cursor" ref={cursorRef}></div>
       <div className="cursor-ring" ref={ringRef}></div>
 
@@ -90,6 +94,7 @@ export default function App() {
       </button>
 
       <Navbar scrolled={scrolled} />
+      <Cart />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -98,8 +103,10 @@ export default function App() {
         <Route path="/boutique" element={<Boutique />} />
         <Route path="/medias" element={<Medias />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
       </Routes>
       <Footer />
-    </>
+    </CartProvider>
   )
 }

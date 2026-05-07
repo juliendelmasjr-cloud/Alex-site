@@ -1,4 +1,6 @@
 import useReveal from '../hooks/useReveal'
+import CalendlyEmbed from '../components/CalendlyEmbed'
+import { calendlyUrls } from '../data/calendly'
 
 export default function Services() {
   useReveal()
@@ -23,6 +25,8 @@ export default function Services() {
           overflow: hidden;
           transition: background 0.3s ease;
           cursor: none;
+          display: flex;
+          flex-direction: column;
         }
         .service-card::after {
           content: '';
@@ -77,6 +81,7 @@ export default function Services() {
           align-items: center;
           gap: 1.5rem;
           flex-wrap: wrap;
+          margin-bottom: 1.25rem;
         }
         .service-price {
           font-family: 'Cormorant Garamond', serif;
@@ -105,25 +110,53 @@ export default function Services() {
           text-transform: uppercase;
           color: var(--or);
           border: 1px solid rgba(201,168,76,0.3);
-          padding: 0.6rem 1.2rem;
+          padding: 0.7rem 1.4rem;
           text-decoration: none;
-          transition: background 0.3s ease;
+          transition: background 0.3s ease, color 0.3s ease;
           cursor: none;
           white-space: nowrap;
+          margin-top: auto;
+          align-self: flex-start;
+          background: transparent;
         }
-        .service-cta:hover { background: var(--or-pale); }
+        .service-cta:hover { background: var(--or); color: var(--noir); }
         .service-cta.urgent {
           color: var(--bordeaux-light);
           border-color: rgba(107,26,42,0.6);
           font-size: 0.65rem;
           padding: 0.8rem 2rem;
+          background: rgba(107,26,42,0.15);
         }
-        .service-cta.urgent:hover { background: rgba(107,26,42,0.2); }
+        .service-cta.urgent:hover { background: var(--bordeaux); color: var(--creme); }
         .service-card.gold-highlight {
           background: linear-gradient(145deg, rgba(201,168,76,0.05), var(--noir-card));
         }
         .service-card.paris-border {
           border-left: 2px solid rgba(201,168,76,0.2);
+        }
+        .booking-info {
+          margin-top: 4rem;
+          padding: 2.5rem;
+          background: var(--noir-card);
+          border: 1px solid rgba(201,168,76,0.12);
+          text-align: center;
+        }
+        .booking-info-title {
+          font-family: 'Cinzel', serif;
+          font-size: 0.65rem;
+          letter-spacing: 0.3em;
+          text-transform: uppercase;
+          color: var(--or);
+          margin-bottom: 1rem;
+        }
+        .booking-info-text {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 1.1rem;
+          font-style: italic;
+          color: var(--creme-dim);
+          max-width: 700px;
+          margin: 0 auto;
+          line-height: 1.6;
         }
       `}</style>
 
@@ -154,7 +187,9 @@ export default function Services() {
                   <span className="service-duration">10 minutes</span>
                 </div>
               </div>
-              <a href="#" className="service-cta urgent">Appel Urgent →</a>
+              <CalendlyEmbed url={calendlyUrls.sos} className="service-cta urgent">
+                Appel Urgent →
+              </CalendlyEmbed>
             </div>
 
             {/* 01 */}
@@ -167,6 +202,7 @@ export default function Services() {
                 <span className="service-price">35<small>€</small></span>
                 <span className="service-duration">10 min</span>
               </div>
+              <CalendlyEmbed url={calendlyUrls.consult1Domaine}>Réserver →</CalendlyEmbed>
             </div>
 
             {/* 02 */}
@@ -179,6 +215,7 @@ export default function Services() {
                 <span className="service-price">70<small>€</small></span>
                 <span className="service-duration">20 min</span>
               </div>
+              <CalendlyEmbed url={calendlyUrls.consultFlash}>Réserver →</CalendlyEmbed>
             </div>
 
             {/* 03 */}
@@ -191,6 +228,7 @@ export default function Services() {
                 <span className="service-price">55<small>€</small></span>
                 <span className="service-duration">15 min</span>
               </div>
+              <CalendlyEmbed url={calendlyUrls.miniConsult}>Réserver →</CalendlyEmbed>
             </div>
 
             {/* 04 */}
@@ -203,6 +241,7 @@ export default function Services() {
                 <span className="service-price"><small style={{ fontSize: '0.9rem' }}>à partir de </small>120<small>€</small></span>
                 <span className="service-duration">30 min – 1h</span>
               </div>
+              <CalendlyEmbed url={calendlyUrls.consultParis}>Réserver →</CalendlyEmbed>
             </div>
 
             {/* 05 */}
@@ -215,6 +254,7 @@ export default function Services() {
                 <span className="service-price"><small style={{ fontSize: '0.9rem' }}>à partir de </small>110<small>€</small></span>
                 <span className="service-duration">30–45 min</span>
               </div>
+              <CalendlyEmbed url={calendlyUrls.consultRegion}>Réserver →</CalendlyEmbed>
             </div>
 
             {/* 06 */}
@@ -227,6 +267,7 @@ export default function Services() {
                 <span className="service-price">70<small>€</small></span>
                 <span className="service-duration">40 min</span>
               </div>
+              <CalendlyEmbed url={calendlyUrls.coaching}>Réserver →</CalendlyEmbed>
             </div>
 
             {/* 07 */}
@@ -239,6 +280,7 @@ export default function Services() {
                 <span className="service-price">170<small>€</small></span>
                 <span className="service-duration">1 heure</span>
               </div>
+              <CalendlyEmbed url={calendlyUrls.coachingCouple}>Réserver →</CalendlyEmbed>
             </div>
 
             {/* 08 */}
@@ -251,6 +293,7 @@ export default function Services() {
                 <span className="service-price">300<small>€</small></span>
                 <span className="service-duration">1 heure</span>
               </div>
+              <CalendlyEmbed url={calendlyUrls.nettoyageHabitat}>Réserver →</CalendlyEmbed>
             </div>
 
             {/* 09 */}
@@ -263,8 +306,18 @@ export default function Services() {
                 <span className="service-price">90<small>€ / pers.</small></span>
                 <span className="service-duration">2 heures</span>
               </div>
+              <CalendlyEmbed url={calendlyUrls.atelierProjet}>Réserver →</CalendlyEmbed>
             </div>
 
+          </div>
+
+          <div className="booking-info reveal">
+            <div className="booking-info-title">Réservation en ligne</div>
+            <p className="booking-info-text">
+              Toutes les réservations se font directement depuis cette page. Le paiement
+              est sécurisé par Stripe et la confirmation est envoyée par e-mail dès la
+              réservation validée.
+            </p>
           </div>
         </div>
       </section>
