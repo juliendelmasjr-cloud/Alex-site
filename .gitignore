@@ -27,6 +27,9 @@ Thumbs.db
 *.mp4
 *.mov
 *.webm
+# Exception : on autorise les vidéos servies depuis /public (compressées)
+!public/*.mp4
+!public/*.webm
 
 # Anciennes versions monolithiques (avant migration React)
 alexandre-delovane-v1-rose-doree*.html
