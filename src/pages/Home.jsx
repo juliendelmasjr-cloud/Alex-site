@@ -28,7 +28,26 @@ export default function Home() {
           width: 80vw; height: 80vh;
           background: radial-gradient(ellipse, rgba(107,26,42,0.25) 0%, transparent 65%);
           pointer-events: none;
+          z-index: 1;
+        }
+        /* ── HERO VIDEO BACKGROUND ── */
+        .hero-video {
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          object-fit: cover;
           z-index: 0;
+          opacity: 0.45;
+          pointer-events: none;
+        }
+        .hero-video-overlay {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(ellipse at center, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.85) 80%),
+            linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.7) 100%);
+          z-index: 1;
+          pointer-events: none;
         }
         #hero::after {
           content: '';
@@ -352,6 +371,17 @@ export default function Home() {
 
       {/* HERO */}
       <section id="hero">
+        <video
+          className="hero-video"
+          src="/hero-video.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        />
+        <div className="hero-video-overlay" />
         <ParticlesCanvas />
         <div className="hero-content">
           <p className="hero-eyebrow">Coach Intuitif &nbsp;·&nbsp; Médium &nbsp;·&nbsp; Voyant</p>
